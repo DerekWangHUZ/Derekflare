@@ -6,8 +6,8 @@
   "workers_dev": false,
   "keep_vars": true,
   "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": true },
-  // The D1 binding name expected by the application; connect the resource in Worker Settings.
-  "d1_databases": [{ "binding": "DB" }],
+  // Preserve the D1 binding created in Worker Settings without auto-provisioning a database.
+  "unsafe": { "metadata": { "keep_bindings": ["d1"] } },
   "triggers": { "crons": ["0 */6 * * *"] },
   "observability": { "enabled": true, "head_sampling_rate": 1 }
 }
