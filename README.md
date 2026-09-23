@@ -38,12 +38,23 @@ npm test
 
 ## 生产部署
 
+### 使用 Cloudflare 控制台连接 GitHub / GitLab
+
+此方式使用 [Workers Builds 的 Git 集成](https://developers.cloudflare.com/workers/ci-cd/builds/)部署 **Worker**，不需要创建 Pages 项目，也不需要手动创建 D1 或粘贴 SQL。Cloudflare 支持 GitHub 和 GitLab.com 仓库；自托管 GitLab 不在此集成的支持范围内。请先把本项目推送到仅由可信维护者管理的仓库，保留项目根目录的 `wrangler.jsonc`、`package-lock.json`、`migrations/` 和 `scripts/deploy.mjs`，不要提交 `.dev.vars` 或任何密钥。
+
+1. 在 **Workers & Pages** 中先创建一个名为 `dns-delegation-panel` 的 Worker。到该 Worker 的 **Settings → Variables and Secrets**，添加四个**运行时 Secret**：`CLOUDFLARE_API_TOKEN`、`SESSION_KEY`、`TOTP_KEY`、`BOOTSTRAP_KEY`。DNS Token 仅授权指定域名的 `Zone Read`、`DNS Read`、`DNS Write`（需要清缓存时再加 `Cache Purge`）；`TOTP_KEY` 是 32 字节随机值的 base64url 编码，其他密钥也独立随机生成。不要把这些值放进 Git 或 Builds 的构建变量。[Secret 控制台设置](https://developers.cloudflare.com/workers/configuration/secrets/#via-the-dashboard)
+2. 在这个 Worker 的 **Settings → Builds → Connect** 中选择 GitHub 或 GitLab，按提示授权并选择仓库及生产分支。项目在仓库根部时保留默认的 **Root directory**；若放在子目录，则填写包含 `wrangler.jsonc` 的目录。Worker 名称必须与配置中的 `name` 一致。**Build command** 留空，**Deploy command** 填 `npm run deploy`。[连接现有 Worker](https://developers.cloudflare.com/workers/ci-cd/builds/#connect-an-existing-worker)、[构建设置](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)
+3. 在 Worker 的 **Settings → Builds → API token** 确认构建使用的 Token，再到 **My Profile → API Tokens** 给它增加此账号的 **D1 Edit** 权限，并保留原有 Workers 部署权限。Cloudflare 默认构建 Token 不含 D1 Edit。这个构建 Token 与上一步仅限指定域名的运行时 DNS Token 是两套凭证，不能互用。配置好后向生产分支推送一次提交，触发首次构建；如连接仓库时已经触发构建，则修改 Token 后重试。[构建 Token 权限](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/#api-token)、[D1 Edit 权限](https://developers.cloudflare.com/fundamentals/api/reference/permissions/)
+4. `npm run deploy` 首次运行时先由 Wrangler 自动创建并绑定 D1，随后自动执行 `migrations/` 中尚未应用的迁移；以后每次构建先迁移再部署新版本。无需填写 `database_id` 或操作 D1 Console。若任一步失败，构建会报错，应先查看 **Builds** 日志，不要手动重复运行 SQL。[自动创建资源](https://developers.cloudflare.com/workers/wrangler/configuration/#automatic-provisioning)、[D1 迁移](https://developers.cloudflare.com/d1/reference/migrations/)
+5. 在 **Builds** 中确认部署成功，并检查 Worker 的 `DB` 绑定与四个 Secret。此项目的 `workers_dev` 为 `false`；在 **Domains & Routes** 添加专用于管理面板的 Custom Domain 后再访问。随后按下方第 4–5 步创建管理员、添加 Zone ID 并先完成测试。保持非生产分支预览构建关闭；若需开启，先为预览单独配置 D1 与受限测试 Token，避免预览代码接触生产 DNS。[预览资源说明](https://developers.cloudflare.com/workers/previews/resources/)
+
+### 使用 Wrangler 命令行
+
 1. 在 Cloudflare 为**指定域名**创建 API Token，授予 `Zone Read`、`DNS Read`、`DNS Write`，如要使用清缓存功能再授予 `Cache Purge`。确认朋友没有该账号的 Cloudflare 成员身份或其他可直连凭证。
 2. 使用 `npx wrangler secret put` 分别设置 `CLOUDFLARE_API_TOKEN`、`SESSION_KEY`、`TOTP_KEY`、`BOOTSTRAP_KEY`。四项均不得写入 `wrangler.jsonc`、Git 或前端文件。`TOTP_KEY` 必须是 32 字节随机值的 base64url 编码；其他密钥也应独立随机生成。
-3. 运行 `npx wrangler deploy`。配置中的 D1 绑定会自动创建或绑定同名数据库；此时 `workers_dev` 已关闭且尚未绑定公开域名。
-4. 运行 `npx wrangler d1 migrations apply dns-delegation-panel --remote`。确认迁移成功后，在 Worker 的 **Domains & Routes** 中添加你指定的 Custom Domain，例如 `dns.example.com`。该主机名应保留给管理员，不能作为朋友的授权范围；若已有 CNAME，先处理其冲突。[Custom Domain 文档](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)
-5. 打开面板，用 `BOOTSTRAP_KEY` 创建唯一管理员。在后台添加 Zone ID；此操作会先核对 Cloudflare 域名并进行初次全量对账。随后创建邀请、设置逐人逐域名策略。朋友接受邀请后可申请子域名，或由管理员直接分配。
-6. 先在专用测试子域名跑通申请、审批、增改删、降档、停用和对账，再邀请正式用户。
+3. 运行 `npm ci` 和 `npm run deploy`，自动创建或绑定 D1、执行尚未应用的迁移并部署 Worker。成功后在 **Domains & Routes** 中添加你指定的 Custom Domain，例如 `dns.example.com`。该主机名应保留给管理员，不能作为朋友的授权范围；若已有 CNAME，先处理其冲突。[Custom Domain 文档](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/)
+4. 打开面板，用 `BOOTSTRAP_KEY` 创建唯一管理员。在后台添加 Zone ID；此操作会先核对 Cloudflare 域名并进行初次全量对账。随后创建邀请、设置逐人逐域名策略。朋友接受邀请后可申请子域名，或由管理员直接分配。
+5. 先在专用测试子域名跑通申请、审批、增改删、降档、停用和对账，再邀请正式用户。
 
 建议在正式域名之外先使用单独的测试 Worker 与 D1 数据库。每次变更配置后运行 `npx wrangler types` 更新 `worker-configuration.d.ts`，再执行 `npm run typecheck`、`npm test` 和 `npm run deploy:check`。审计日志由应用追加保存并可分页查看；Cloudflare 账号所有者仍可直接操作 D1，因此它不是防管理员篡改的独立审计系统。
 
