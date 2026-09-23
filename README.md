@@ -17,7 +17,7 @@
 
 ## 环境变量与密钥
 
-生产环境要配置以下四个 Worker 运行时 Secret。它们都在 Worker 的 **Settings → Variables and Secrets** 中添加，选择 **Production** 环境和 **Secret** 类型；不要放进仓库、GitHub/GitLab 的构建变量或 Cloudflare Builds 的构建设置。保存后 Cloudflare 不会再次显示 Secret 值，请把生成结果保存在自己的密码管理器中。
+生产环境要配置以下四个 Worker 运行时 Secret。它们都在 Worker 的 **Settings → Variables and Secrets** 中添加，类型选 **Secret**；不要放进仓库或 Git 构建变量。保存后 Cloudflare 不会再次显示 Secret 值，请把生成结果保存在自己的密码管理器中。
 
 | 名称 | 值从哪里来 | 用途 |
 | --- | --- | --- |
@@ -99,12 +99,12 @@ Remove-Item Env:SMOKE_ADMIN_PASSWORD
 
 ## 生产部署：Cloudflare 控制台连接 Git 仓库
 
-以下步骤使用 [Workers Builds Git 集成](https://developers.cloudflare.com/workers/ci-cd/builds/)，不创建 Pages 项目。Cloudflare 目前支持 GitHub 和 GitLab.com 的仓库，不支持自托管 GitLab。先按上一节准备 API Token 和三个随机密钥；添加到 Worker 的操作按以下顺序进行。
+以下步骤使用 [Workers Builds Git 集成](https://developers.cloudflare.com/workers/ci-cd/builds/)，不创建 Pages 项目。先按上文准备面板使用的 API Token 和三个随机密钥；它们只在最后一步填入 Worker 设置。
 
-1. 在 **Workers & Pages → Create application → Import a repository** 中选择 GitHub 或 GitLab，授权并选择仓库、生产分支。填写你想要的 Worker 名称；项目在仓库根目录时保留默认 **Root directory**。
-2. 设置 **Build command** 为空，**Deploy command** 填 `npx wrangler deploy`，然后创建并部署 Worker。本项目由 Wrangler 直接打包，不需要单独的构建命令。[Workers Builds 设置](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)
-3. Worker 创建后，先打开 **Storage & Databases → D1 SQL Database → Create Database**，创建 D1 数据库并填写你想用的数据库名称。然后打开 Worker 的 **Settings → Bindings → Add → D1 database**，**Variable name 填 `DB`**，从数据库列表中选中刚创建的数据库，再添加绑定。数据库名称可自行决定，应用只依赖绑定名 `DB`。本项目只使用 D1，不需要另建 R2 或 KV。首次 API 请求或定时任务会自动建表和升级结构，不用手动打开 SQL Console、运行 SQL 或配置迁移。仓库没有声明 D1 资源，首次 Git 部署不会自动创建数据库；后续 Git 部署会保留在 Worker 设置中添加的 D1 绑定。[D1 创建和绑定步骤](https://developers.cloudflare.com/d1/get-started/)
-4. 最后打开 **Settings → Variables and Secrets**，选择 **Production**，逐项添加上表中的四个名称；每项的 **Type 选 Secret**，粘贴对应值。全部添加后选择 **Deploy** 使设置生效。[在 Dashboard 添加 Secret](https://developers.cloudflare.com/workers/configuration/secrets/#via-the-dashboard)
+1. 在 **Workers & Pages → Create application → Import a repository** 中选择 GitHub 或 GitLab，连接仓库并选择生产分支。**Worker 名称由你自己填写**，仓库配置没有固定名称；项目位于仓库根目录时，Root directory 保持默认值。
+2. **Build command 留空**，**Deploy command 填 `npx wrangler deploy`**，然后保存并部署。项目无需额外构建命令，也无需自行配置构建 Token。[Workers Builds 设置](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/)
+3. 部署完成后，在该 Worker 的 **Settings → Bindings** 查看 D1 绑定：变量名应为 **`DB`**，指向自动创建的数据库。数据库名由所填 Worker 名称生成，例如 Worker 名为 `derekflare` 时显示 `derekflare-db`。仓库中的 `d1_databases` 配置负责自动创建并连接它；**不要再手工创建第二个数据库或执行 SQL**。应用首次收到 API 请求时会自动建表。本项目无需 R2、KV。[Cloudflare 自动配置资源说明](https://developers.cloudflare.com/changelog/post/2025-10-24-automatic-resource-provisioning/)
+4. 最后打开该 Worker 的 **Settings → Variables and Secrets**，在生产环境逐项添加上表的四个名称，**Type 均选 Secret** 并粘贴相应的值；保存并按界面提示部署，使配置生效。[在控制台添加 Secret](https://developers.cloudflare.com/workers/configuration/secrets/#via-the-dashboard)
 
 ### 绑定面板域名并创建管理员
 

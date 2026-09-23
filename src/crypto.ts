@@ -18,9 +18,11 @@ export function equal(a: string, b: string): boolean {
   let diff = 0; for (let i = 0; i < x.length; i++) diff |= x[i] ^ y[i];
   return diff === 0;
 }
-export const PASSWORD_ITERATIONS = 600_000;
+// workerd rejects PBKDF2 requests above 100,000 iterations.
+export const PASSWORD_ITERATIONS = 100_000;
 export async function hashPassword(password: string, salt = b64(bytes(16)), iterations = PASSWORD_ITERATIONS) {
   if (password.length < 12 || password.length > 256) throw new AppError(400, '密码长度需为 12–256 个字符');
+  if (!Number.isInteger(iterations) || iterations < 1 || iterations > PASSWORD_ITERATIONS) throw new Error('PBKDF2 iteration count is unsupported by Workers');
   const key = await crypto.subtle.importKey('raw', encoder.encode(password), 'PBKDF2', false, ['deriveBits']);
   const hash = await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: unb64(salt), iterations }, key, 256);
   return { salt, hash: b64(new Uint8Array(hash)), iterations };

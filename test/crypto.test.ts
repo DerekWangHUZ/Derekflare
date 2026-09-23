@@ -3,7 +3,8 @@ import { base32, bytes, decryptTotp, encryptTotp, hashPassword, verifyPassword, 
 
 describe('credentials', () => {
   it('verifies salted password hashes and rejects the wrong password', async () => {
-    const saved = await hashPassword('a-test-password-123', undefined, 1000);
+    const saved = await hashPassword('a-test-password-123');
+    expect(saved.iterations).toBeLessThanOrEqual(100_000);
     expect(await verifyPassword('a-test-password-123', saved.salt, saved.hash, saved.iterations)).toBe(true);
     expect(await verifyPassword('wrong-password-123', saved.salt, saved.hash, saved.iterations)).toBe(false);
   });
