@@ -3,13 +3,35 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
   <title>DNS 分权面板</title>
   <link rel="stylesheet" href="/style.css">
   <script src="/app.js" defer></script>
 </head>
-<body>
-  <header><h1>DNS 分权面板</h1><div id="identity"></div></header>
-  <main id="app"><p>正在加载…</p></main>
+<body data-app-state="loading">
+  <header class="topbar">
+    <button id="menu-toggle" class="menu-toggle secondary" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="sidebar" hidden><span aria-hidden="true">☰</span></button>
+    <a class="brand" href="/" aria-label="DNS 控制台首页"><span class="brand-mark" aria-hidden="true">D</span><span>DNS 控制台<small>ACCESS MANAGEMENT</small></span></a>
+    <div class="topbar-actions">
+      <div id="identity" class="identity"></div>
+      <button id="theme-toggle" class="icon-button" type="button" aria-label="切换外观" title="切换外观">◐</button>
+    </div>
+  </header>
+  <div class="app-frame">
+    <button id="nav-overlay" class="nav-overlay" type="button" aria-label="关闭导航" aria-hidden="true" tabindex="-1"></button>
+    <aside id="sidebar" class="sidebar" aria-label="侧边导航" hidden></aside>
+    <main id="app" class="app-content" aria-live="polite">
+      <div class="state-card" role="status"><span class="spinner" aria-hidden="true"></span><span>正在加载…</span></div>
+    </main>
+  </div>
+  <dialog id="confirm-dialog" class="confirm-dialog" aria-labelledby="confirm-title" aria-describedby="confirm-message">
+    <form method="dialog">
+      <p class="eyebrow">CONFIRM ACTION</p>
+      <h2 id="confirm-title">确认操作</h2>
+      <p id="confirm-message"></p>
+      <div class="dialog-actions"><button type="submit" id="confirm-cancel" class="secondary" value="cancel" autofocus>取消</button><button type="submit" class="danger" value="confirm">确认继续</button></div>
+    </form>
+  </dialog>
   <div id="notice" role="status" aria-live="polite"></div>
 </body>
 </html>
