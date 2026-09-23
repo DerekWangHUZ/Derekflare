@@ -1,6 +1,6 @@
 import { audit, lock, unlock } from './db';
 import { createRecord, deleteRecord, listRecords, purgeHost, updateRecord } from './cloudflare';
-import { normalizeName, ownerFor, scopesFor, under, validatePayload, zoneFor, mayWrite, mayView } from './policy';
+import { allowedTypesFor, normalizeName, ownerFor, scopesFor, under, validatePayload, zoneFor, mayWrite, mayView } from './policy';
 import { AppError, id, now, type Actor, type DnsRecord, type Env, type Policy, type Zone } from './types';
 
 export type ChangeKind = 'create' | 'update' | 'delete';
@@ -50,6 +50,9 @@ async function validateChange(env: Env, actor: Actor, zone: Zone, policy: Policy
     }
     clean = validatePayload(submitted, zone, policy, actor);
     if (actor.user.role !== 'admin') {
+      if ((kind === 'create' || clean.type !== current?.type) && (!policy || !allowedTypesFor(policy).includes(clean.type as string))) {
+        throw new AppError(403, '未获该记录类型权限');
+      }
       const scopes = await scopesFor(env, actor, zone.id);
       if (!scopes.some(s => under(clean!.name as string, s))) throw new AppError(403, '名称不在授权范围');
     }

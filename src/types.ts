@@ -12,7 +12,7 @@ export type Mode = 'self' | 'collaborate' | 'delegate' | 'readonly';
 export interface User {
   id: string; username: string | null; password_hash: string | null;
   password_salt: string | null; password_iterations: number | null;
-  role: 'admin' | 'friend'; status: 'pending' | 'active' | 'disabled';
+  role: 'admin' | 'user'; status: 'pending' | 'active' | 'disabled';
   totp_secret: string | null; totp_enabled: number;
   failed_count: number; locked_until: number;
 }
@@ -20,6 +20,7 @@ export interface Zone { id: string; name: string; enabled: number }
 export interface Policy {
   user_id: string; zone_id: string; mode: Mode; max_records: number;
   allow_proxy: number; allow_purge: number; require_approval: number;
+  allowed_types_json: string;
 }
 export interface DnsRecord {
   id: string; name: string; type: string; content?: string; data?: Record<string, unknown>;

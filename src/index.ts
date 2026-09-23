@@ -2,7 +2,7 @@ import { acceptInvite, actorFor, bootstrap, cookieHeader, csrfFor, finishTotp, i
 import { verifyZone, getRecord, listRecords } from './cloudflare';
 import { audit, lock, unlock, withZoneLock } from './db';
 import { executeChange, purge, reconcile, submitChange, visibleRecord, visibleRecords } from './operations';
-import { normalizeName, ownerFor, scopesFor, under, validateScopeAssignment, zoneFor } from './policy';
+import { DEFAULT_ALLOWED_TYPES, TYPES, allowedTypesFor, normalizeName, ownerFor, policyForApi, scopesFor, under, validateAllowedTypes, validateScopeAssignment, zoneFor } from './policy';
 import { decryptTotp, hashPassword, randomToken, sha256, verifyPassword, verifyTotp } from './crypto';
 import { ensureSchema } from './schema';
 import { AppError, id, now, type Actor, type Env, type Mode, type Policy, type User, type Zone } from './types';
@@ -27,7 +27,7 @@ const zoneIdOf = (url: URL, input?: Record<string, unknown>) => text(input?.zone
 
 async function adminScope(env: Env, actor: Actor, userId: string, zoneId: string, rawName: unknown, requestId?: string) {
   ADMIN_ONLY(actor);
-  const user = await env.DB.prepare('SELECT id,status FROM users WHERE id=? AND role=\'friend\'').bind(userId).first<{ id: string; status: string }>();
+  const user = await env.DB.prepare("SELECT id,status FROM users WHERE id=? AND role='user'").bind(userId).first<{ id: string; status: string }>();
   if (!user || user.status === 'disabled') throw new AppError(404, '账号不存在');
   const { zone } = await zoneFor(env, actor, zoneId);
   const name = normalizeName(rawName, zone.name);
@@ -65,6 +65,7 @@ async function api(request: Request, env: Env, url: URL): Promise<Response> {
   const actor = await actorFor(request, env);
   if (!['GET','HEAD'].includes(method)) await requireCsrf(request, env, actor);
   if (method === 'GET' && path === '/api/me') return json({ id: actor.user.id, username: actor.user.username, role: actor.user.role, totpEnabled: !!actor.user.totp_enabled, csrf: await csrfFor(request, env) });
+  if (method === 'GET' && path === '/api/dns/types') return json([...TYPES]);
   if (method === 'POST' && path === '/api/logout') {
     await env.DB.prepare('UPDATE sessions SET revoked_at=? WHERE id=?').bind(now(), actor.sessionId).run();
     await audit(env, actor.user.id, null, 'auth.logout', null, 'success');
@@ -94,7 +95,7 @@ async function api(request: Request, env: Env, url: URL): Promise<Response> {
   if (method === 'GET' && path === '/api/policies') {
     const zone = zoneIdOf(url); await zoneFor(env, actor, zone);
     const row = actor.user.role === 'admin' ? null : await env.DB.prepare('SELECT * FROM policies WHERE user_id=? AND zone_id=?').bind(actor.user.id, zone).first<Policy>();
-    return json(row);
+    return json(row ? policyForApi(row) : null);
   }
   if (method === 'GET' && path === '/api/scopes') {
     const zone = zoneIdOf(url); await zoneFor(env, actor, zone);
@@ -136,8 +137,8 @@ async function api(request: Request, env: Env, url: URL): Promise<Response> {
 
   if (!path.startsWith('/api/admin/')) throw new AppError(404, '接口不存在');
   ADMIN_ONLY(actor);
-  if (method === 'GET' && path === '/api/admin/users') return json((await env.DB.prepare("SELECT id,username,role,status,totp_enabled,created_at FROM users WHERE role='friend' AND (status='pending' OR password_hash IS NOT NULL) ORDER BY created_at DESC").all()).results);
-  if (method === 'GET' && path === '/api/admin/policies') return json((await env.DB.prepare('SELECT * FROM policies ORDER BY zone_id,user_id').all()).results);
+  if (method === 'GET' && path === '/api/admin/users') return json((await env.DB.prepare("SELECT id,username,role,status,totp_enabled,created_at FROM users WHERE role='user' AND (status='pending' OR password_hash IS NOT NULL) ORDER BY created_at DESC").all()).results);
+  if (method === 'GET' && path === '/api/admin/policies') return json((await env.DB.prepare('SELECT * FROM policies ORDER BY zone_id,user_id').all<Policy>()).results.map(policyForApi));
   if (method === 'POST' && path === '/api/admin/zones') {
     const input = await body(request), zone = await verifyZone(env, text(input.zoneId));
     await env.DB.prepare('INSERT OR IGNORE INTO zones (id,name,created_at) VALUES (?,?,?)').bind(zone.id, zone.name, now()).run();
@@ -150,7 +151,7 @@ async function api(request: Request, env: Env, url: URL): Promise<Response> {
     await zoneFor(env, actor, zoneId);
     const userId = id(), token = randomToken(), invitationId = id();
     await env.DB.batch([
-      env.DB.prepare("INSERT INTO users (id,role,status,created_at) VALUES (?,'friend','pending',?)").bind(userId, now()),
+      env.DB.prepare("INSERT INTO users (id,role,status,created_at) VALUES (?,'user','pending',?)").bind(userId, now()),
       env.DB.prepare("INSERT INTO policies (user_id,zone_id,mode) VALUES (?,?,'self')").bind(userId, zoneId),
       env.DB.prepare('INSERT INTO invitations (id,user_id,token_hash,expires_at,created_at) VALUES (?,?,?,?,?)').bind(invitationId, userId, await sha256(token), now() + 86400, now()),
     ]);
@@ -160,16 +161,18 @@ async function api(request: Request, env: Env, url: URL): Promise<Response> {
   if (method === 'PUT' && parts[2] === 'policies' && parts.length === 5) {
     const userId = parts[3], zoneId = parts[4], input = await body(request);
     await zoneFor(env, actor, zoneId);
-    const user = await env.DB.prepare("SELECT id FROM users WHERE id=? AND role='friend' AND status!='disabled'").bind(userId).first();
+    const user = await env.DB.prepare("SELECT id FROM users WHERE id=? AND role='user' AND status!='disabled'").bind(userId).first();
     if (!user) throw new AppError(404, '账号不存在');
     const mode = text(input.mode) as Mode;
     if (!modes.has(mode) || !Number.isInteger(input.maxRecords) || (input.maxRecords as number) < 0 || (input.maxRecords as number) > 100000) throw new AppError(400, '策略无效');
-    const next = { mode, max_records: input.maxRecords, allow_proxy: boolean(input.allowProxy), allow_purge: boolean(input.allowPurge), require_approval: boolean(input.requireApproval) };
-    const updates = [env.DB.prepare('INSERT INTO policies (user_id,zone_id,mode,max_records,allow_proxy,allow_purge,require_approval) VALUES (?,?,?,?,?,?,?) ON CONFLICT(user_id,zone_id) DO UPDATE SET mode=excluded.mode,max_records=excluded.max_records,allow_proxy=excluded.allow_proxy,allow_purge=excluded.allow_purge,require_approval=excluded.require_approval')
-      .bind(userId, zoneId, mode, next.max_records, next.allow_proxy, next.allow_purge, next.require_approval)];
-    if (mode !== 'delegate') updates.push(env.DB.prepare('DELETE FROM scopes WHERE user_id=? AND zone_id=? AND name=(SELECT name FROM zones WHERE id=?)').bind(userId, zoneId, zoneId));
+    const requestedTypes = Object.hasOwn(input, 'allowedTypes') ? validateAllowedTypes(input.allowedTypes) : null;
     return withZoneLock(env, zoneId, async () => {
-      const old = await env.DB.prepare('SELECT * FROM policies WHERE user_id=? AND zone_id=?').bind(userId, zoneId).first();
+      const old = await env.DB.prepare('SELECT * FROM policies WHERE user_id=? AND zone_id=?').bind(userId, zoneId).first<Policy>();
+      const allowedTypes = requestedTypes ?? (old ? allowedTypesFor(old) : [...DEFAULT_ALLOWED_TYPES]);
+      const next = { mode, max_records: input.maxRecords, allow_proxy: boolean(input.allowProxy), allow_purge: boolean(input.allowPurge), require_approval: boolean(input.requireApproval), allowedTypes };
+      const updates = [env.DB.prepare('INSERT INTO policies (user_id,zone_id,mode,max_records,allow_proxy,allow_purge,require_approval,allowed_types_json) VALUES (?,?,?,?,?,?,?,?) ON CONFLICT(user_id,zone_id) DO UPDATE SET mode=excluded.mode,max_records=excluded.max_records,allow_proxy=excluded.allow_proxy,allow_purge=excluded.allow_purge,require_approval=excluded.require_approval,allowed_types_json=excluded.allowed_types_json')
+        .bind(userId, zoneId, mode, next.max_records, next.allow_proxy, next.allow_purge, next.require_approval, JSON.stringify(allowedTypes))];
+      if (mode !== 'delegate') updates.push(env.DB.prepare('DELETE FROM scopes WHERE user_id=? AND zone_id=? AND name=(SELECT name FROM zones WHERE id=?)').bind(userId, zoneId, zoneId));
       await env.DB.batch(updates);
       await audit(env, actor.user.id, zoneId, 'policy.update', userId, 'success', old, next);
       return json(next);
@@ -258,7 +261,7 @@ async function api(request: Request, env: Env, url: URL): Promise<Response> {
   }
   if (method === 'POST' && parts[2] === 'users' && parts.length === 5) {
     const userId = parts[3], action = parts[4];
-    const user = await env.DB.prepare("SELECT id FROM users WHERE id=? AND role='friend'").bind(userId).first();
+    const user = await env.DB.prepare("SELECT id FROM users WHERE id=? AND role='user'").bind(userId).first();
     if (!user) throw new AppError(404, '账号不存在');
     if (action === 'disable' || action === 'delete') {
       await env.DB.batch([
@@ -308,7 +311,7 @@ async function api(request: Request, env: Env, url: URL): Promise<Response> {
       const record = await getRecord(env, zoneId, recordId);
       const nextOwner = input.userId === null ? null : text(input.userId);
       if (nextOwner) {
-        const target = await env.DB.prepare("SELECT id FROM users WHERE id=? AND role='friend' AND status='active'").bind(nextOwner).first();
+        const target = await env.DB.prepare("SELECT id FROM users WHERE id=? AND role='user' AND status='active'").bind(nextOwner).first();
         if (!target) throw new AppError(400, '目标账号不可用');
       }
       const previous = await ownerFor(env, zoneId, recordId);

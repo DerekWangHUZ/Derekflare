@@ -1,6 +1,20 @@
 import { AppError, type Actor, type DnsRecord, type Env, type Policy, type Zone } from './types';
 
 export const TYPES = new Set('A AAAA CNAME MX NS OPENPGPKEY PTR TXT CAA CERT DNSKEY DS HTTPS LOC NAPTR SMIMEA SRV SSHFP SVCB TLSA URI'.split(' '));
+export const DEFAULT_ALLOWED_TYPES = ['A', 'AAAA', 'CNAME', 'TXT'];
+export function validateAllowedTypes(input: unknown): string[] {
+  if (!Array.isArray(input) || input.length > TYPES.size || input.some(type => typeof type !== 'string' || !TYPES.has(type)) || new Set(input).size !== input.length) {
+    throw new AppError(400, '允许的记录类型无效');
+  }
+  return [...TYPES].filter(type => input.includes(type));
+}
+export function allowedTypesFor(policy: Policy): string[] {
+  try { return validateAllowedTypes(JSON.parse(policy.allowed_types_json)); } catch { return []; }
+}
+export function policyForApi(policy: Policy): Omit<Policy, 'allowed_types_json'> & { allowedTypes: string[] } {
+  const { allowed_types_json: _, ...rest } = policy;
+  return { ...rest, allowedTypes: allowedTypesFor(policy) };
+}
 export async function zoneFor(env: Env, actor: Actor, zoneId: string): Promise<{ zone: Zone; policy: Policy | null }> {
   const zone = await env.DB.prepare('SELECT * FROM zones WHERE id=? AND enabled=1').bind(zoneId).first<Zone>();
   if (!zone) throw new AppError(404, '域名不存在');

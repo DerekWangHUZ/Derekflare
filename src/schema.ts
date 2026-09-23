@@ -1,10 +1,12 @@
 import initialSchema from '../migrations/0001_initial.sql';
 import hardeningSchema from '../migrations/0002_harden.sql';
+import userRolesAndTypesSchema from '../migrations/0003_user_roles_and_record_types.sql';
 import type { Env } from './types';
 
 const migrations = [
   { name: '0001_initial.sql', sql: initialSchema },
   { name: '0002_harden.sql', sql: hardeningSchema },
+  { name: '0003_user_roles_and_record_types.sql', sql: userRolesAndTypesSchema },
 ] as const;
 
 const initialized = new WeakMap<D1Database, Promise<void>>();
@@ -24,6 +26,9 @@ async function alreadyPresent(db: D1Database, name: string): Promise<boolean> {
   }
   if (name === '0002_harden.sql') {
     return await columnExists(db, 'operations', 'before_json') && await columnExists(db, 'operations', 'after_json');
+  }
+  if (name === '0003_user_roles_and_record_types.sql') {
+    return columnExists(db, 'policies', 'allowed_types_json');
   }
   return false;
 }

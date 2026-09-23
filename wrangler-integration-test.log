@@ -1,0 +1,1910 @@
+
+--- 2026-09-23T09:02:54.720Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:02:54.720Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:02:54.728Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:02:54.734Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:02:54.735Z log
+Resource location: local 
+
+---
+
+--- 2026-09-23T09:02:54.735Z log
+Use --remote if you want to access the remote instance.
+
+---
+
+--- 2026-09-23T09:02:54.765Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154174765,"properties":{"amplitude_session_id":1790154174740,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:02:54.768Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-test\v3\d1:
+---
+
+--- 2026-09-23T09:02:54.768Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:02:54.782Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:02:55.485Z log
+🚣 19 commands executed successfully.
+---
+
+--- 2026-09-23T09:02:55.486Z log
+[
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:02:55.487Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154175487,"properties":{"amplitude_session_id":1790154174740,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"durationMs":757,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:02:55.490Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:03:06.220Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:03:06.220Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:06.224Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:06.230Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:03:06.231Z log
+Resource location: local 
+
+---
+
+--- 2026-09-23T09:03:06.231Z log
+Use --remote if you want to access the remote instance.
+
+---
+
+--- 2026-09-23T09:03:06.258Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154186258,"properties":{"amplitude_session_id":1790154186235,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:03:06.261Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-test\v3\d1:
+---
+
+--- 2026-09-23T09:03:06.261Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:03:06.272Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:03:06.617Z log
+🚣 2 commands executed successfully.
+---
+
+--- 2026-09-23T09:03:06.618Z log
+[
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:03:06.618Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154186618,"properties":{"amplitude_session_id":1790154186235,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"durationMs":393,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:03:06.622Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:03:18.119Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:03:18.119Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:18.124Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:18.131Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:03:18.132Z log
+Resource location: local 
+
+---
+
+--- 2026-09-23T09:03:18.132Z log
+Use --remote if you want to access the remote instance.
+
+---
+
+--- 2026-09-23T09:03:18.156Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-test\v3\d1:
+---
+
+--- 2026-09-23T09:03:18.156Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:03:18.174Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154198174,"properties":{"amplitude_session_id":1790154198136,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","local","persistTo","yes"],"argsCombination":"command, config, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:03:18.181Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:03:18.591Z log
+🚣 8 commands executed successfully.
+---
+
+--- 2026-09-23T09:03:18.591Z log
+[
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:03:18.592Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154198592,"properties":{"amplitude_session_id":1790154198136,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","local","persistTo","yes"],"argsCombination":"command, config, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"durationMs":465,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:03:18.596Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:03:34.320Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:03:34.320Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:34.324Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:34.332Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:03:34.353Z debug
+setting config
+---
+
+--- 2026-09-23T09:03:34.354Z debug
+Updating config... undefined undefined
+---
+
+--- 2026-09-23T09:03:34.388Z debug
+local dev variables file not found at ".dev.vars". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:34.388Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:34.388Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:34.394Z log
+Your Worker has access to the following bindings:
+---
+
+--- 2026-09-23T09:03:34.394Z log
+Binding                                                                    Resource                  Mode
+---
+
+--- 2026-09-23T09:03:34.394Z log
+env.DB (dns-panel-integration-test)                                        D1 Database               local
+---
+
+--- 2026-09-23T09:03:34.394Z log
+env.ASSETS                                                                 Assets                    local
+---
+
+--- 2026-09-23T09:03:34.394Z log
+env.CLOUDFLARE_API_TOKEN ("local-test-token")                              Environment Variable      local
+---
+
+--- 2026-09-23T09:03:34.394Z log
+env.SESSION_KEY ("local-test-session-key-1234567890123456")                Environment Variable      local
+---
+
+--- 2026-09-23T09:03:34.394Z log
+env.TOTP_KEY ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...")                  Environment Variable      local
+---
+
+--- 2026-09-23T09:03:34.394Z log
+env.BOOTSTRAP_KEY ("local-test-bootstrap-key-123456789012...")             Environment Variable      local
+---
+
+--- 2026-09-23T09:03:34.394Z log
+env.CF_API_BASE ("http://127.0.0.1:8999/client/v4")                        Environment Variable      local
+---
+
+--- 2026-09-23T09:03:34.394Z log
+
+---
+
+--- 2026-09-23T09:03:34.405Z debug
+local dev variables file not found at ".dev.vars". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:34.405Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:34.405Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:03:34.408Z log
+❓ Your types might be out of date. Re-run `wrangler types` to ensure your types are correct.
+---
+
+--- 2026-09-23T09:03:34.529Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-Q1Ja99\4f9a9536128a67f1caf104dcc8fb65cadab794f7-0001_initial.sql
+---
+
+--- 2026-09-23T09:03:34.531Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-Q1Ja99\4ed44e6fb259c5785d24ba45a4f08f382a1c90a6-0002_harden.sql
+---
+
+--- 2026-09-23T09:03:34.531Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-Q1Ja99\5eb212f94a3f8b8e911422f419d42e7bb583f026-0003_user_roles_and_record_types.sql
+---
+
+--- 2026-09-23T09:03:34.549Z debug
+RemoteRuntimeController teardown beginning...
+---
+
+--- 2026-09-23T09:03:34.549Z debug
+RemoteRuntimeController teardown complete
+---
+
+--- 2026-09-23T09:03:34.553Z log
+⎔ Starting local server...
+---
+
+--- 2026-09-23T09:03:34.608Z log
+Wrangler detected this dev session is running in an AI agent.
+The Local Explorer API is available at http://127.0.0.1:8788/cdn-cgi/local/explorer/api
+Useful routes:
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/workers - local Workers and bindings
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/storage/kv/namespaces - KV namespaces
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/d1/database - D1 databases
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/r2/buckets - R2 buckets
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/workers/durable_objects/namespaces - Durable Object namespaces
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/workflows - Workflows
+  POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/query - run a read-only SQL query (SELECT/WITH only) over captured request traces and console logs. Tables: spans, logs (read attributes via json(attributes)). Example:
+    curl -X POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/query -H 'Content-Type: application/json' -d '{"sql":"SELECT service, name, outcome, duration_ms FROM spans WHERE parent_id IS NULL LIMIT 20"}'
+  POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/clear - clear all captured traces and logs
+If the routes above don't cover what you need, fetch the full OpenAPI schema (large - use only as a last resort):
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api - OpenAPI schema
+---
+
+--- 2026-09-23T09:03:34.619Z debug
+[InspectorProxyWorker] handleProxyControllerIncomingMessage {"type":"reloadStart"}
+---
+
+--- 2026-09-23T09:03:34.854Z debug
+[InspectorProxyWorker] handleProxyControllerIncomingMessage {"type":"reloadComplete","proxyData":{"userWorkerUrl":{"protocol":"http:","hostname":"127.0.0.1","port":"58250"},"userWorkerInspectorUrl":{"protocol":"ws:","hostname":"127.0.0.1","port":"58251","pathname":"/core:user:dns-panel-integration-test"},"userWorkerInnerUrlOverrides":{"protocol":"http:"},"headers":{"MF-Proxy-Shared-Secret":"7765b33e-8fa8-41a3-82e3-42afcc039615"},"liveReload":false,"proxyLogsToController":false}}
+---
+
+--- 2026-09-23T09:03:34.855Z debug
+[InspectorProxyWorker] reconnectRuntimeWebSocket
+---
+
+--- 2026-09-23T09:03:34.855Z debug
+[InspectorProxyWorker] NEW RUNTIME WEBSOCKET http://127.0.0.1:58251/core:user:dns-panel-integration-test
+---
+
+--- 2026-09-23T09:03:34.856Z debug
+[InspectorProxyWorker] SEND TO DEVTOOLS {"method":"Runtime.executionContextsCleared"}
+---
+
+--- 2026-09-23T09:03:34.857Z debug
+[InspectorProxyWorker] RUNTIME WEBSOCKET OPENED
+---
+
+--- 2026-09-23T09:03:34.857Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.enable","id":100000001}
+---
+
+--- 2026-09-23T09:03:34.858Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE {
+  method: 'Runtime.executionContextCreated',
+  params: {
+    context: {
+      id: 70274657,
+      origin: '',
+      name: 'Worker',
+      uniqueId: '1709472958817516059.2335022719967635010'
+    }
+  }
+}
+---
+
+--- 2026-09-23T09:03:34.858Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000001, result: {} }
+---
+
+--- 2026-09-23T09:03:44.860Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000002}
+---
+
+--- 2026-09-23T09:03:44.861Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000002, result: { id: '9c70e78f96726dcb' } }
+---
+
+--- 2026-09-23T09:03:44.952Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154224952,"properties":{"amplitude_session_id":1790154214333,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":false,"agent":"codex","argsUsed":["config","local","persistTo","port"],"argsCombination":"config, local, persistTo, port","sanitizedCommand":"dev","sanitizedArgs":{"local":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:03:51.235Z error
+X [ERROR] {"event":"unhandled","message":"Durable Object was reset and rolled back to its last known good state because the application left the database in a state where constraints were violated: FOREIGN KEY constraint failed: SQLITE_CONSTRAINT (extended: SQLITE_CONSTRAINT_FOREIGNKEY)"}
+
+
+---
+
+--- 2026-09-23T09:03:51.239Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE {
+  method: 'Runtime.consoleAPICalled',
+  params: {
+    type: 'error',
+    args: [ [Object] ],
+    executionContextId: 70274657,
+    timestamp: 1790154231125,
+    stackTrace: { callFrames: [Array] }
+  }
+}
+---
+
+--- 2026-09-23T09:03:54.862Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000003}
+---
+
+--- 2026-09-23T09:03:54.864Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000003, result: { id: '9c70e78f96726dcb' } }
+---
+
+--- 2026-09-23T09:03:55.547Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:04:04.873Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000004}
+---
+
+--- 2026-09-23T09:04:04.875Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000004, result: { id: '9c70e78f96726dcb' } }
+---
+
+--- 2026-09-23T09:04:14.885Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000005}
+---
+
+--- 2026-09-23T09:04:14.886Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000005, result: { id: '9c70e78f96726dcb' } }
+---
+
+--- 2026-09-23T09:04:27.391Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:04:27.391Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:04:27.396Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:04:27.421Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-test\v3\d1:
+---
+
+--- 2026-09-23T09:04:27.421Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:04:27.436Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154267436,"properties":{"amplitude_session_id":1790154267404,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","json","local","persistTo","yes"],"argsCombination":"command, config, json, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true,"json":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:04:27.444Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:04:27.797Z log
+🚣 3 commands executed successfully.
+---
+
+--- 2026-09-23T09:04:27.797Z log
+[
+  {
+    "results": [
+      {
+        "role": "admin",
+        "n": 1
+      },
+      {
+        "role": "friend",
+        "n": 1
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:04:27.798Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154267798,"properties":{"amplitude_session_id":1790154267404,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","json","local","persistTo","yes"],"argsCombination":"command, config, json, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true,"json":true},"durationMs":400,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:04:27.802Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:04:33.900Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:04:33.900Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:04:33.906Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:04:33.912Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:04:33.913Z log
+Resource location: local 
+
+---
+
+--- 2026-09-23T09:04:33.913Z log
+Use --remote if you want to access the remote instance.
+
+---
+
+--- 2026-09-23T09:04:33.935Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-test\v3\d1:
+---
+
+--- 2026-09-23T09:04:33.935Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:04:33.949Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154273949,"properties":{"amplitude_session_id":1790154273917,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:04:33.957Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:04:34.351Z log
+
+---
+
+--- 2026-09-23T09:07:46.526Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:07:46.526Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:07:46.533Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:07:46.540Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:07:46.541Z log
+Resource location: local 
+
+---
+
+--- 2026-09-23T09:07:46.541Z log
+Use --remote if you want to access the remote instance.
+
+---
+
+--- 2026-09-23T09:07:46.572Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154466572,"properties":{"amplitude_session_id":1790154466546,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:07:46.575Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-test\v3\d1:
+---
+
+--- 2026-09-23T09:07:46.576Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:07:46.590Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:07:46.997Z log
+🚣 4 commands executed successfully.
+---
+
+--- 2026-09-23T09:07:46.997Z log
+[
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 8
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:07:46.998Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154466998,"properties":{"amplitude_session_id":1790154466546,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"durationMs":463,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:07:47.004Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:07:55.388Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:07:55.388Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:07:55.395Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:07:55.424Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-test\v3\d1:
+---
+
+--- 2026-09-23T09:07:55.424Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:07:55.442Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154475442,"properties":{"amplitude_session_id":1790154475404,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","json","local","persistTo","yes"],"argsCombination":"command, config, json, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true,"json":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:07:55.453Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:07:55.861Z log
+🚣 4 commands executed successfully.
+---
+
+--- 2026-09-23T09:07:55.861Z log
+[
+  {
+    "results": [
+      {
+        "role": "admin"
+      },
+      {
+        "role": "user"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "allowed_types_json": "[\"A\",\"AAAA\",\"CNAME\",\"MX\",\"NS\",\"OPENPGPKEY\",\"PTR\",\"TXT\",\"CAA\",\"CERT\",\"DNSKEY\",\"DS\",\"HTTPS\",\"LOC\",\"NAPTR\",\"SMIMEA\",\"SRV\",\"SSHFP\",\"SVCB\",\"TLSA\",\"URI\"]"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [
+      {
+        "n": 1
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:07:55.862Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154475862,"properties":{"amplitude_session_id":1790154475404,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","json","local","persistTo","yes"],"argsCombination":"command, config, json, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true,"json":true},"durationMs":467,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:07:55.868Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:08:13.233Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:08:13.233Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:13.239Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:13.256Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:08:13.258Z log
+Resource location: local 
+
+---
+
+--- 2026-09-23T09:08:13.258Z log
+Use --remote if you want to access the remote instance.
+
+---
+
+--- 2026-09-23T09:08:13.291Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154493291,"properties":{"amplitude_session_id":1790154493263,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:08:13.294Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-auto\v3\d1:
+---
+
+--- 2026-09-23T09:08:13.294Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:08:13.311Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:08:13.963Z log
+🚣 19 commands executed successfully.
+---
+
+--- 2026-09-23T09:08:13.963Z log
+[
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:08:13.964Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154493964,"properties":{"amplitude_session_id":1790154493263,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"durationMs":723,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:08:13.969Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:08:15.742Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:08:15.742Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:15.747Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:15.755Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:08:15.756Z log
+Resource location: local 
+
+---
+
+--- 2026-09-23T09:08:15.756Z log
+Use --remote if you want to access the remote instance.
+
+---
+
+--- 2026-09-23T09:08:15.786Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154495786,"properties":{"amplitude_session_id":1790154495761,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:08:15.790Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-auto\v3\d1:
+---
+
+--- 2026-09-23T09:08:15.790Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:08:15.803Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:08:16.216Z log
+🚣 2 commands executed successfully.
+---
+
+--- 2026-09-23T09:08:16.216Z log
+[
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:08:16.217Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154496217,"properties":{"amplitude_session_id":1790154495761,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["config","file","local","persistTo","yes"],"argsCombination":"config, file, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"durationMs":468,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:08:16.223Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:08:17.977Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:08:17.977Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:17.983Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:17.990Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:08:17.990Z log
+Resource location: local 
+
+---
+
+--- 2026-09-23T09:08:17.991Z log
+Use --remote if you want to access the remote instance.
+
+---
+
+--- 2026-09-23T09:08:18.016Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-auto\v3\d1:
+---
+
+--- 2026-09-23T09:08:18.017Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:08:18.036Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154498036,"properties":{"amplitude_session_id":1790154497995,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","local","persistTo","yes"],"argsCombination":"command, config, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:08:18.046Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:08:18.480Z log
+🚣 8 commands executed successfully.
+---
+
+--- 2026-09-23T09:08:18.481Z log
+[
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:08:18.482Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154498482,"properties":{"amplitude_session_id":1790154497995,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","local","persistTo","yes"],"argsCombination":"command, config, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true},"durationMs":497,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:08:18.487Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:08:28.552Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:08:28.552Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:28.557Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:28.565Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:08:28.588Z debug
+setting config
+---
+
+--- 2026-09-23T09:08:28.589Z debug
+Updating config... undefined undefined
+---
+
+--- 2026-09-23T09:08:28.628Z debug
+local dev variables file not found at ".dev.vars". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:28.628Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:28.628Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:28.635Z log
+Your Worker has access to the following bindings:
+---
+
+--- 2026-09-23T09:08:28.636Z log
+Binding                                                                    Resource                  Mode
+---
+
+--- 2026-09-23T09:08:28.636Z log
+env.DB (dns-panel-integration-test)                                        D1 Database               local
+---
+
+--- 2026-09-23T09:08:28.636Z log
+env.ASSETS                                                                 Assets                    local
+---
+
+--- 2026-09-23T09:08:28.636Z log
+env.CLOUDFLARE_API_TOKEN ("local-test-token")                              Environment Variable      local
+---
+
+--- 2026-09-23T09:08:28.636Z log
+env.SESSION_KEY ("local-test-session-key-1234567890123456")                Environment Variable      local
+---
+
+--- 2026-09-23T09:08:28.636Z log
+env.TOTP_KEY ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...")                  Environment Variable      local
+---
+
+--- 2026-09-23T09:08:28.636Z log
+env.BOOTSTRAP_KEY ("local-test-bootstrap-key-123456789012...")             Environment Variable      local
+---
+
+--- 2026-09-23T09:08:28.636Z log
+env.CF_API_BASE ("http://127.0.0.1:8999/client/v4")                        Environment Variable      local
+---
+
+--- 2026-09-23T09:08:28.636Z log
+
+---
+
+--- 2026-09-23T09:08:28.648Z debug
+local dev variables file not found at ".dev.vars". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:28.648Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:28.648Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:08:28.652Z log
+❓ Your types might be out of date. Re-run `wrangler types` to ensure your types are correct.
+---
+
+--- 2026-09-23T09:08:28.774Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-jV3rLW\4f9a9536128a67f1caf104dcc8fb65cadab794f7-0001_initial.sql
+---
+
+--- 2026-09-23T09:08:28.780Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-jV3rLW\4ed44e6fb259c5785d24ba45a4f08f382a1c90a6-0002_harden.sql
+---
+
+--- 2026-09-23T09:08:28.780Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-jV3rLW\0930abe326ebc9c6e0f99d88eb06eb833436820e-0003_user_roles_and_record_types.sql
+---
+
+--- 2026-09-23T09:08:28.798Z debug
+RemoteRuntimeController teardown beginning...
+---
+
+--- 2026-09-23T09:08:28.798Z debug
+RemoteRuntimeController teardown complete
+---
+
+--- 2026-09-23T09:08:28.801Z log
+⎔ Starting local server...
+---
+
+--- 2026-09-23T09:08:28.858Z log
+Wrangler detected this dev session is running in an AI agent.
+The Local Explorer API is available at http://127.0.0.1:8788/cdn-cgi/local/explorer/api
+Useful routes:
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/workers - local Workers and bindings
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/storage/kv/namespaces - KV namespaces
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/d1/database - D1 databases
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/r2/buckets - R2 buckets
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/workers/durable_objects/namespaces - Durable Object namespaces
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/workflows - Workflows
+  POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/query - run a read-only SQL query (SELECT/WITH only) over captured request traces and console logs. Tables: spans, logs (read attributes via json(attributes)). Example:
+    curl -X POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/query -H 'Content-Type: application/json' -d '{"sql":"SELECT service, name, outcome, duration_ms FROM spans WHERE parent_id IS NULL LIMIT 20"}'
+  POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/clear - clear all captured traces and logs
+If the routes above don't cover what you need, fetch the full OpenAPI schema (large - use only as a last resort):
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api - OpenAPI schema
+---
+
+--- 2026-09-23T09:08:28.871Z debug
+[InspectorProxyWorker] handleProxyControllerIncomingMessage {"type":"reloadStart"}
+---
+
+--- 2026-09-23T09:08:29.122Z debug
+[InspectorProxyWorker] handleProxyControllerIncomingMessage {"type":"reloadComplete","proxyData":{"userWorkerUrl":{"protocol":"http:","hostname":"127.0.0.1","port":"65504"},"userWorkerInspectorUrl":{"protocol":"ws:","hostname":"127.0.0.1","port":"65505","pathname":"/core:user:dns-panel-integration-test"},"userWorkerInnerUrlOverrides":{"protocol":"http:"},"headers":{"MF-Proxy-Shared-Secret":"f3568afd-1abc-4676-a146-93a44f196226"},"liveReload":false,"proxyLogsToController":false}}
+---
+
+--- 2026-09-23T09:08:29.122Z debug
+[InspectorProxyWorker] reconnectRuntimeWebSocket
+---
+
+--- 2026-09-23T09:08:29.123Z debug
+[InspectorProxyWorker] NEW RUNTIME WEBSOCKET http://127.0.0.1:65505/core:user:dns-panel-integration-test
+---
+
+--- 2026-09-23T09:08:29.123Z debug
+[InspectorProxyWorker] SEND TO DEVTOOLS {"method":"Runtime.executionContextsCleared"}
+---
+
+--- 2026-09-23T09:08:29.125Z debug
+[InspectorProxyWorker] RUNTIME WEBSOCKET OPENED
+---
+
+--- 2026-09-23T09:08:29.125Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.enable","id":100000001}
+---
+
+--- 2026-09-23T09:08:29.126Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE {
+  method: 'Runtime.executionContextCreated',
+  params: {
+    context: {
+      id: 52592993,
+      origin: '',
+      name: 'Worker',
+      uniqueId: '-2528174238317642540.-471937773587342726'
+    }
+  }
+}
+---
+
+--- 2026-09-23T09:08:29.127Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000001, result: {} }
+---
+
+--- 2026-09-23T09:08:32.931Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154512931,"properties":{"amplitude_session_id":1790154508566,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":false,"agent":"codex","argsUsed":["config","local","persistTo","port"],"argsCombination":"config, local, persistTo, port","sanitizedCommand":"dev","sanitizedArgs":{"local":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:08:39.133Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000002}
+---
+
+--- 2026-09-23T09:08:39.134Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000002, result: { id: '5eba9345286b876b' } }
+---
+
+--- 2026-09-23T09:08:49.146Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000003}
+---
+
+--- 2026-09-23T09:08:49.147Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000003, result: { id: '5eba9345286b876b' } }
+---
+
+--- 2026-09-23T09:09:00.862Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:09:00.862Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:00.866Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:00.890Z log
+🌀 Executing on local database DB (00000000-0000-0000-0000-000000000003) from .wrangler-integration-auto\v3\d1:
+---
+
+--- 2026-09-23T09:09:00.890Z log
+🌀 To execute on your remote database, add a --remote flag to your wrangler command.
+---
+
+--- 2026-09-23T09:09:00.902Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154540902,"properties":{"amplitude_session_id":1790154540875,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","json","local","persistTo","yes"],"argsCombination":"command, config, json, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true,"json":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:09:00.924Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:09:01.370Z log
+🚣 8 commands executed successfully.
+---
+
+--- 2026-09-23T09:09:01.370Z log
+[
+  {
+    "results": [
+      {
+        "role": "admin"
+      },
+      {
+        "role": "user"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [
+      {
+        "allowed_types_json": "[\"A\",\"AAAA\",\"CNAME\",\"MX\",\"NS\",\"OPENPGPKEY\",\"PTR\",\"TXT\",\"CAA\",\"CERT\",\"DNSKEY\",\"DS\",\"HTTPS\",\"LOC\",\"NAPTR\",\"SMIMEA\",\"SRV\",\"SSHFP\",\"SVCB\",\"TLSA\",\"URI\"]"
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 1
+    }
+  },
+  {
+    "results": [
+      {
+        "n": 1
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [
+      {
+        "n": 1
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [
+      {
+        "n": 1
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [
+      {
+        "n": 1
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [
+      {
+        "n": 1
+      }
+    ],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  },
+  {
+    "results": [],
+    "success": true,
+    "meta": {
+      "duration": 0
+    }
+  }
+]
+---
+
+--- 2026-09-23T09:09:01.372Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command completed","timestamp":1790154541372,"properties":{"amplitude_session_id":1790154540875,"amplitude_event_id":1,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"jsonc","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":true,"agent":"codex","argsUsed":["command","config","json","local","persistTo","yes"],"argsCombination":"command, config, json, local, persistTo, yes","sanitizedCommand":"d1 execute","sanitizedArgs":{"local":true,"yes":true,"json":true},"durationMs":504,"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:09:01.376Z debug
+Metrics dispatcher: Failed to send request: fetch failed
+---
+
+--- 2026-09-23T09:09:13.210Z debug
+🪵  Writing logs to "C:\Users\DerekWang\source\repos\Derekflare\wrangler-integration-test.log"
+---
+
+--- 2026-09-23T09:09:13.210Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:13.215Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:13.223Z log
+
+ ⛅️ wrangler 4.136.3
+────────────────────
+---
+
+--- 2026-09-23T09:09:13.236Z debug
+setting config
+---
+
+--- 2026-09-23T09:09:13.236Z debug
+Updating config... undefined undefined
+---
+
+--- 2026-09-23T09:09:13.242Z debug
+Metrics dispatcher: Posting data {"deviceId":"8d13dafa-f63f-4bbf-86a5-285903911a40","event":"wrangler command started","timestamp":1790154553242,"properties":{"amplitude_session_id":1790154553225,"amplitude_event_id":0,"wranglerVersion":"4.136.3","wranglerMajorVersion":4,"wranglerMinorVersion":136,"wranglerPatchVersion":3,"osPlatform":"Windows","osVersion":"Windows 11 Pro","nodeVersion":24,"isFirstUsage":false,"configFileType":"none","isCI":false,"isPagesCI":false,"isWorkersCI":false,"isInteractive":false,"hasAssets":false,"agent":"codex","argsUsed":["config","local","persistTo","port"],"argsCombination":"config, local, persistTo, port","sanitizedCommand":"dev","sanitizedArgs":{"local":true},"currentAgentSkillsInstalled":"manual"}}
+---
+
+--- 2026-09-23T09:09:13.283Z debug
+local dev variables file not found at ".dev.vars". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:13.284Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:13.284Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:13.290Z log
+Your Worker has access to the following bindings:
+---
+
+--- 2026-09-23T09:09:13.290Z log
+Binding                                                                    Resource                  Mode
+---
+
+--- 2026-09-23T09:09:13.290Z log
+env.DB (dns-panel-integration-test)                                        D1 Database               local
+---
+
+--- 2026-09-23T09:09:13.290Z log
+env.ASSETS                                                                 Assets                    local
+---
+
+--- 2026-09-23T09:09:13.290Z log
+env.CLOUDFLARE_API_TOKEN ("local-test-token")                              Environment Variable      local
+---
+
+--- 2026-09-23T09:09:13.291Z log
+env.SESSION_KEY ("local-test-session-key-1234567890123456")                Environment Variable      local
+---
+
+--- 2026-09-23T09:09:13.291Z log
+env.TOTP_KEY ("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA...")                  Environment Variable      local
+---
+
+--- 2026-09-23T09:09:13.291Z log
+env.BOOTSTRAP_KEY ("local-test-bootstrap-key-123456789012...")             Environment Variable      local
+---
+
+--- 2026-09-23T09:09:13.291Z log
+env.CF_API_BASE ("http://127.0.0.1:8999/client/v4")                        Environment Variable      local
+---
+
+--- 2026-09-23T09:09:13.291Z log
+
+---
+
+--- 2026-09-23T09:09:13.303Z debug
+local dev variables file not found at ".dev.vars". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:13.303Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:13.303Z debug
+.env file not found at "C:\Users\DerekWang\source\repos\Derekflare\.env.local". Continuing... For more details, refer to https://developers.cloudflare.com/workers/wrangler/system-environment-variables/
+---
+
+--- 2026-09-23T09:09:13.306Z log
+❓ Your types might be out of date. Re-run `wrangler types` to ensure your types are correct.
+---
+
+--- 2026-09-23T09:09:13.428Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-KrwqRg\4f9a9536128a67f1caf104dcc8fb65cadab794f7-0001_initial.sql
+---
+
+--- 2026-09-23T09:09:13.434Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-KrwqRg\4ed44e6fb259c5785d24ba45a4f08f382a1c90a6-0002_harden.sql
+---
+
+--- 2026-09-23T09:09:13.434Z debug
+Writing additional module to output C:\Users\DerekWang\source\repos\Derekflare\.wrangler\tmp\dev-KrwqRg\0930abe326ebc9c6e0f99d88eb06eb833436820e-0003_user_roles_and_record_types.sql
+---
+
+--- 2026-09-23T09:09:13.452Z debug
+RemoteRuntimeController teardown beginning...
+---
+
+--- 2026-09-23T09:09:13.452Z debug
+RemoteRuntimeController teardown complete
+---
+
+--- 2026-09-23T09:09:13.455Z log
+⎔ Starting local server...
+---
+
+--- 2026-09-23T09:09:13.510Z log
+Wrangler detected this dev session is running in an AI agent.
+The Local Explorer API is available at http://127.0.0.1:8788/cdn-cgi/local/explorer/api
+Useful routes:
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/workers - local Workers and bindings
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/storage/kv/namespaces - KV namespaces
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/d1/database - D1 databases
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/r2/buckets - R2 buckets
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/workers/durable_objects/namespaces - Durable Object namespaces
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api/workflows - Workflows
+  POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/query - run a read-only SQL query (SELECT/WITH only) over captured request traces and console logs. Tables: spans, logs (read attributes via json(attributes)). Example:
+    curl -X POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/query -H 'Content-Type: application/json' -d '{"sql":"SELECT service, name, outcome, duration_ms FROM spans WHERE parent_id IS NULL LIMIT 20"}'
+  POST http://127.0.0.1:8788/cdn-cgi/local/explorer/api/local/observability/clear - clear all captured traces and logs
+If the routes above don't cover what you need, fetch the full OpenAPI schema (large - use only as a last resort):
+  GET http://127.0.0.1:8788/cdn-cgi/local/explorer/api - OpenAPI schema
+---
+
+--- 2026-09-23T09:09:13.521Z debug
+[InspectorProxyWorker] handleProxyControllerIncomingMessage {"type":"reloadStart"}
+---
+
+--- 2026-09-23T09:09:13.777Z debug
+[InspectorProxyWorker] handleProxyControllerIncomingMessage {"type":"reloadComplete","proxyData":{"userWorkerUrl":{"protocol":"http:","hostname":"127.0.0.1","port":"62893"},"userWorkerInspectorUrl":{"protocol":"ws:","hostname":"127.0.0.1","port":"62894","pathname":"/core:user:dns-panel-integration-test"},"userWorkerInnerUrlOverrides":{"protocol":"http:"},"headers":{"MF-Proxy-Shared-Secret":"8c1332e7-89c9-45fd-8a3d-2636a2003775"},"liveReload":false,"proxyLogsToController":false}}
+---
+
+--- 2026-09-23T09:09:13.778Z debug
+[InspectorProxyWorker] reconnectRuntimeWebSocket
+---
+
+--- 2026-09-23T09:09:13.778Z debug
+[InspectorProxyWorker] NEW RUNTIME WEBSOCKET http://127.0.0.1:62894/core:user:dns-panel-integration-test
+---
+
+--- 2026-09-23T09:09:13.779Z debug
+[InspectorProxyWorker] SEND TO DEVTOOLS {"method":"Runtime.executionContextsCleared"}
+---
+
+--- 2026-09-23T09:09:13.780Z debug
+[InspectorProxyWorker] RUNTIME WEBSOCKET OPENED
+---
+
+--- 2026-09-23T09:09:13.781Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.enable","id":100000001}
+---
+
+--- 2026-09-23T09:09:13.782Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE {
+  method: 'Runtime.executionContextCreated',
+  params: {
+    context: {
+      id: 135613409,
+      origin: '',
+      name: 'Worker',
+      uniqueId: '-7104539486767011712.5579846134435961415'
+    }
+  }
+}
+---
+
+--- 2026-09-23T09:09:13.782Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000001, result: {} }
+---
+
+--- 2026-09-23T09:09:23.782Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000002}
+---
+
+--- 2026-09-23T09:09:23.784Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000002, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:09:33.792Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000003}
+---
+
+--- 2026-09-23T09:09:33.793Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000003, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:09:43.795Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000004}
+---
+
+--- 2026-09-23T09:09:43.796Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000004, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:09:53.798Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000005}
+---
+
+--- 2026-09-23T09:09:53.800Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000005, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:10:03.807Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000006}
+---
+
+--- 2026-09-23T09:10:03.808Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000006, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:10:13.809Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000007}
+---
+
+--- 2026-09-23T09:10:13.810Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000007, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:10:23.827Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000008}
+---
+
+--- 2026-09-23T09:10:23.828Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000008, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:10:33.838Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000009}
+---
+
+--- 2026-09-23T09:10:33.839Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000009, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:10:43.853Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000010}
+---
+
+--- 2026-09-23T09:10:43.853Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000010, result: { id: 'f3d30a59ce0eb655' } }
+---
+
+--- 2026-09-23T09:10:53.857Z debug
+[InspectorProxyWorker] SEND TO RUNTIME {"method":"Runtime.getIsolateId","id":100000011}
+---
+
+--- 2026-09-23T09:10:53.858Z debug
+[InspectorProxyWorker] RUNTIME INCOMING MESSAGE { id: 100000011, result: { id: 'f3d30a59ce0eb655' } }
+---
