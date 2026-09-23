@@ -4,10 +4,10 @@
   "main": "src/index.ts",
   "compatibility_date": "2026-09-23",
   "workers_dev": false,
-  "vars": { "CF_API_BASE": "https://api.cloudflare.com/client/v4" },
+  "keep_vars": true,
   "assets": { "directory": "./public", "binding": "ASSETS", "run_worker_first": true },
-  "d1_databases": [{ "binding": "DB", "database_name": "dns-delegation-panel", "migrations_dir": "migrations" }],
-  "secrets": { "required": ["CLOUDFLARE_API_TOKEN", "SESSION_KEY", "TOTP_KEY", "BOOTSTRAP_KEY"] },
+  // The D1 binding name expected by the application; connect the resource in Worker Settings.
+  "d1_databases": [{ "binding": "DB" }],
   "triggers": { "crons": ["0 */6 * * *"] },
   "observability": { "enabled": true, "head_sampling_rate": 1 }
 }

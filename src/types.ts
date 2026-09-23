@@ -1,4 +1,12 @@
-export type Env = Cloudflare.Env;
+export interface Env {
+  DB: D1Database;
+  ASSETS: Fetcher;
+  CF_API_BASE?: string;
+  CLOUDFLARE_API_TOKEN: string;
+  SESSION_KEY: string;
+  TOTP_KEY: string;
+  BOOTSTRAP_KEY: string;
+}
 
 export type Mode = 'self' | 'collaborate' | 'delegate' | 'readonly';
 export interface User {

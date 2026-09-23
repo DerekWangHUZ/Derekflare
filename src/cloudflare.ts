@@ -1,8 +1,9 @@
 import { AppError, type DnsRecord, type Env, type Zone } from './types';
 
 interface CfResult<T> { success: boolean; errors?: { code: number; message: string }[]; result: T; result_info?: { page: number; total_pages: number } }
+const apiBase = (env: Env) => (env.CF_API_BASE || 'https://api.cloudflare.com/client/v4').replace(/\/$/, '');
 export async function cf<T>(env: Env, path: string, method = 'GET', body?: unknown): Promise<T> {
-  const response = await fetch(`${env.CF_API_BASE}${path}`, {
+  const response = await fetch(`${apiBase(env)}${path}`, {
     method,
     headers: { Authorization: `Bearer ${env.CLOUDFLARE_API_TOKEN}`, ...(body === undefined ? {} : { 'Content-Type': 'application/json' }) },
     body: body === undefined ? undefined : JSON.stringify(body),
@@ -18,7 +19,7 @@ export async function verifyZone(env: Env, zoneId: string): Promise<Zone> {
 export async function listRecords(env: Env, zoneId: string): Promise<DnsRecord[]> {
   const all: DnsRecord[] = [];
   for (let page = 1; page <= 10000; page++) {
-    const response = await fetch(`${env.CF_API_BASE}/zones/${encodeURIComponent(zoneId)}/dns_records?page=${page}&per_page=500`, {
+    const response = await fetch(`${apiBase(env)}/zones/${encodeURIComponent(zoneId)}/dns_records?page=${page}&per_page=500`, {
       headers: { Authorization: `Bearer ${env.CLOUDFLARE_API_TOKEN}` },
     });
     const data = await response.json() as CfResult<DnsRecord[]>;

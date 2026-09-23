@@ -6,9 +6,7 @@
     "dev": "wrangler dev",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:smoke": "node test/smoke.mjs",
-    "deploy": "node scripts/deploy.mjs",
-    "deploy:check": "wrangler deploy --dry-run"
+    "test:smoke": "node test/smoke.mjs"
   },
   "devDependencies": {
     "typescript": "^5.9.2",

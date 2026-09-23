@@ -4,6 +4,7 @@ import { audit, lock, unlock, withZoneLock } from './db';
 import { executeChange, purge, reconcile, submitChange, visibleRecord, visibleRecords } from './operations';
 import { normalizeName, ownerFor, scopesFor, under, validateScopeAssignment, zoneFor } from './policy';
 import { decryptTotp, hashPassword, randomToken, sha256, verifyPassword, verifyTotp } from './crypto';
+import { ensureSchema } from './schema';
 import { AppError, id, now, type Actor, type Env, type Mode, type Policy, type User, type Zone } from './types';
 
 const json = (body: unknown, status = 200, headers: Record<string, string> = {}) => Response.json(body, { status, headers: { 'Cache-Control': 'no-store', 'Strict-Transport-Security': 'max-age=63072000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', ...headers } });
@@ -46,6 +47,7 @@ async function adminScope(env: Env, actor: Actor, userId: string, zoneId: string
 }
 
 async function api(request: Request, env: Env, url: URL): Promise<Response> {
+  await ensureSchema(env);
   const method = request.method, path = url.pathname, parts = path.split('/').filter(Boolean);
   if (method === 'POST' && path === '/api/bootstrap') {
     const cookie = await bootstrap(env, await body(request)); return json({ ok: true }, 200, { 'Set-Cookie': cookie });
@@ -364,6 +366,7 @@ export default {
     }
   },
   async scheduled(_controller: ScheduledController, env: Env): Promise<void> {
+    await ensureSchema(env);
     const zones = await env.DB.prepare('SELECT id FROM zones WHERE enabled=1').all<{ id: string }>();
     for (const zone of zones.results) {
       try { await reconcile(env, zone.id); } catch (error) { console.error(JSON.stringify({ event: 'reconcile_failed', zone: zone.id, message: error instanceof Error ? error.message : 'unknown' })); }
