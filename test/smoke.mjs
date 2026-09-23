@@ -1,0 +1,73 @@
+import assert from 'node:assert/strict';
+import { createHmac } from 'node:crypto';
+
+const origin = process.env.SMOKE_ORIGIN || 'http://127.0.0.1:8787';
+const password = process.env.SMOKE_ADMIN_PASSWORD;
+if (!password) throw new Error('Set SMOKE_ADMIN_PASSWORD for the local bootstrap account');
+const suffix = `friend${Math.random().toString(36).slice(2,10)}.example.test`;
+function totp(secret) { const alphabet='ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'; let bits=0,value=0; const raw=[]; for(const char of secret){ value=(value<<5)|alphabet.indexOf(char); bits+=5; if(bits>=8) raw.push((value>>>(bits-=8))&255); } const counter=Buffer.alloc(8); counter.writeUInt32BE(Math.floor(Date.now()/30000),4); const digest=createHmac('sha1',Buffer.from(raw)).update(counter).digest(); const offset=digest[19]&15; return String((digest.readUInt32BE(offset)&0x7fffffff)%1000000).padStart(6,'0'); }
+
+async function call(path, method = 'GET', data, session) {
+  const response = await fetch(origin + path, { method, headers: { ...(method === 'GET' ? {} : { Origin:origin, 'Content-Type':'application/json', 'X-CSRF-Token':session?.csrf || '' }), ...(session ? { Cookie:session.cookie } : {}) }, body:data === undefined ? undefined : JSON.stringify(data) });
+  const value = await response.json().catch(() => ({}));
+  return { status:response.status, value, cookie:response.headers.get('set-cookie')?.split(';')[0] };
+}
+async function session(cookie) { const me = await call('/api/me','GET',undefined,{cookie}); assert.equal(me.status,200); return { cookie, csrf:me.value.csrf }; }
+const adminLogin = await call('/api/login','POST',{username:'localadmin',password}); assert.equal(adminLogin.status,200,JSON.stringify(adminLogin.value));
+const admin = await session(adminLogin.cookie);
+assert.equal((await call('/api/admin/zones','POST',{zoneId:'test-zone'},admin)).status,201);
+assert.equal((await call('/api/admin/records/admin-record/ack','POST',{zoneId:'test-zone'},admin)).status,200);
+const invitation = await call('/api/admin/invitations','POST',{zoneId:'test-zone'},admin); assert.equal(invitation.status,201);
+const token = new URL(invitation.value.link).hash.slice('#invite='.length);
+const accepted = await call('/api/invites/accept','POST',{token,username:`u${suffix.slice(6,14)}`,password:'friend-test-password-123'}); assert.equal(accepted.status,200,JSON.stringify(accepted.value));
+assert.equal((await call('/api/invites/accept','POST',{token,username:'replay',password:'friend-test-password-123'})).status,400);
+const friend = await session(accepted.cookie);
+assert.equal((await call('/api/records?zone=test-zone','GET',undefined,friend)).value.length,0);
+const scope = await call('/api/scopes/requests','POST',{zoneId:'test-zone',name:suffix},friend); assert.equal(scope.status,202);
+assert.equal((await call('/api/records','POST',{zoneId:'test-zone',record:{type:'A',name:`a.${suffix}`,content:'192.0.2.2'}},friend)).status,403);
+assert.equal((await call(`/api/admin/scopes/requests/${scope.value.id}/approve`,'POST',{},admin)).status,200);
+const created = await call('/api/records','POST',{zoneId:'test-zone',record:{type:'A',name:`a.${suffix}`,content:'192.0.2.2'}},friend); assert.equal(created.status,201,JSON.stringify(created.value));
+const ownId = created.value.record.id;
+assert.equal((await call('/api/records?zone=test-zone','GET',undefined,friend)).value.length,1);
+const collab = {mode:'collaborate',maxRecords:5,allowProxy:false,allowPurge:true,requireApproval:false};
+assert.equal((await call(`/api/admin/policies/${invitation.value.userId}/test-zone`,'PUT',collab,admin)).status,200);
+assert.ok((await call('/api/records?zone=test-zone','GET',undefined,friend)).value.some(r => r.id === 'admin-record'));
+assert.equal((await call('/api/records/admin-record?zone=test-zone','GET',undefined,friend)).status,200);
+assert.equal((await call('/api/records/admin-record','PATCH',{zoneId:'test-zone',record:{type:'A',name:'owner.example.test',content:'192.0.2.9'}},friend)).status,404);
+assert.equal((await call('/api/cache/purge','POST',{zoneId:'test-zone',host:`a.${suffix}`},friend)).status,200);
+assert.equal((await call('/api/cache/purge','POST',{zoneId:'test-zone',host:'owner.example.test'},friend)).status,403);
+const approval = { ...collab, mode:'self', requireApproval:true };
+assert.equal((await call(`/api/admin/policies/${invitation.value.userId}/test-zone`,'PUT',approval,admin)).status,200);
+const pending = await call('/api/records','POST',{zoneId:'test-zone',record:{type:'TXT',name:`b.${suffix}`,content:'approved'}},friend);
+assert.equal(pending.value.pending,true);
+assert.equal((await call('/api/records?zone=test-zone','GET',undefined,friend)).value.length,1);
+assert.equal((await call(`/api/admin/changes/${pending.value.id}/approve`,'POST',{},admin)).status,200);
+assert.equal((await call('/api/records?zone=test-zone','GET',undefined,friend)).value.length,2);
+const stale = await call(`/api/records/${ownId}`,'PATCH',{zoneId:'test-zone',record:{type:'A',name:`a.${suffix}`,content:'192.0.2.4'}},friend);
+assert.equal(stale.value.pending,true);
+assert.equal((await call(`/api/records/${ownId}`,'PATCH',{zoneId:'test-zone',record:{type:'A',name:`a.${suffix}`,content:'192.0.2.5'}},admin)).status,200);
+assert.equal((await call(`/api/admin/changes/${stale.value.id}/approve`,'POST',{},admin)).status,409);
+assert.equal((await call(`/api/records/${ownId}?zone=test-zone`,'GET',undefined,friend)).value.content,'192.0.2.5');
+const delegate = { ...collab, mode:'delegate' };
+assert.equal((await call(`/api/admin/policies/${invitation.value.userId}/test-zone`,'PUT',delegate,admin)).status,200);
+assert.equal((await call('/api/admin/scopes','POST',{userId:invitation.value.userId,zoneId:'test-zone',name:'example.test'},admin)).status,201);
+assert.equal((await call('/api/records/admin-record','PATCH',{zoneId:'test-zone',record:{type:'A',name:'owner.example.test',content:'192.0.2.9'}},friend)).status,200);
+const readonly = { ...collab, mode:'readonly' };
+assert.equal((await call(`/api/admin/policies/${invitation.value.userId}/test-zone`,'PUT',readonly,admin)).status,200);
+assert.equal((await call('/api/scopes?zone=test-zone','GET',undefined,friend)).value.some(s => s.name === 'example.test'),false);
+assert.equal((await call(`/api/records/${ownId}`,'PATCH',{zoneId:'test-zone',record:{type:'A',name:`a.${suffix}`,content:'192.0.2.3'}},friend)).status,403);
+const capped = { ...collab, mode:'self', maxRecords:2, allowPurge:false };
+assert.equal((await call(`/api/admin/policies/${invitation.value.userId}/test-zone`,'PUT',capped,admin)).status,200);
+assert.equal((await call('/api/records','POST',{zoneId:'test-zone',record:{type:'TXT',name:`c.${suffix}`,content:'over quota'}},friend)).status,403);
+assert.equal((await call(`/api/records/${ownId}`,'PATCH',{zoneId:'test-zone',record:{type:'A',name:`a.${suffix}`,content:'192.0.2.3',proxied:true}},friend)).status,403);
+assert.equal((await call('/api/totp/start','POST',{password:'wrong-password-123'},friend)).status,403);
+const setup = await call('/api/totp/start','POST',{password:'friend-test-password-123'},friend); assert.equal(setup.status,200);
+assert.equal((await call('/api/totp/finish','POST',{code:totp(setup.value.secret)},friend)).status,200);
+assert.equal((await call('/api/login','POST',{username:`u${suffix.slice(6,14)}`,password:'friend-test-password-123'})).status,401);
+assert.equal((await call('/api/login','POST',{username:`u${suffix.slice(6,14)}`,password:'friend-test-password-123',totp:totp(setup.value.secret)})).status,200);
+assert.equal((await call(`/api/admin/users/${invitation.value.userId}/disable`,'POST',{},admin)).status,200);
+assert.equal((await call('/api/me','GET',undefined,friend)).status,401);
+assert.equal((await call(`/api/records/${ownId}?zone=test-zone`,'GET',undefined,admin)).status,200);
+assert.equal((await call(`/api/admin/users/${invitation.value.userId}/delete`,'POST',{},admin)).status,200);
+assert.equal((await call(`/api/records/${ownId}?zone=test-zone`,'GET',undefined,admin)).value.owner_id,null);
+process.stdout.write('smoke: invite, four modes, isolation, scope approval, quota, proxy, cache, change approval, TOTP, revocation, ownership recovery passed\n');
